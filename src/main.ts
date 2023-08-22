@@ -5,6 +5,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import {
   AnimationClip,
   AnimationMixer,
+  LoopOnce,
   Mesh,
   MeshStandardMaterial,
   PerspectiveCamera,
@@ -98,7 +99,9 @@ function onMonkeyLoad(gltf: GLTF) {
   }, BASE_TIMEOUT + 1000);
   setTimeout(() => {
     gltf.animations.forEach(function (clip: AnimationClip) {
-      mixer.clipAction(clip).play();
+      const action = mixer.clipAction(clip).play();
+      action.setLoop(LoopOnce, 1);
+      action.clampWhenFinished = true;
     });
   }, BASE_TIMEOUT + 2500);
 }
