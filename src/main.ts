@@ -19,7 +19,7 @@ import MONKEY_URL from "./monkey.glb?url";
 const BASE_TIMEOUT = 2000; // time until animations start
 
 const scene = new Scene();
-const renderer = new WebGLRenderer();
+const renderer = new WebGLRenderer({ antialias: true });
 const loader = new GLTFLoader();
 const camera = new PerspectiveCamera(
   75,
