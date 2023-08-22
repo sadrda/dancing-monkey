@@ -8,6 +8,5 @@
     "isolatedModules": true,
     "moduleResolution": "NodeNext"
   },
-  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js"]
 }
