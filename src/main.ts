@@ -5,10 +5,10 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import {
   AnimationClip,
   AnimationMixer,
-  BoxGeometry,
   Mesh,
   MeshStandardMaterial,
   PerspectiveCamera,
+  PlaneGeometry,
   Scene,
   SpotLight,
   Vector3,
@@ -30,10 +30,10 @@ const camera = new PerspectiveCamera(
 const controls = new OrbitControls(camera, renderer.domElement);
 const dracoLoader = new DRACOLoader();
 const plane = new Mesh(
-  new BoxGeometry(10, 10, 0.001),
+  new PlaneGeometry(10, 10),
   new MeshStandardMaterial({ color: 0x999999 })
 );
-plane.rotateX(Math.PI / 2);
+plane.rotateX(-Math.PI / 2);
 plane.receiveShadow = true;
 
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -41,7 +41,7 @@ renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 
 controls.target = new Vector3(0, 0.3, 0);
-camera.position.x = 0.75;
+camera.position.x = 1;
 camera.position.y = 0.3;
 scene.add(plane);
 
